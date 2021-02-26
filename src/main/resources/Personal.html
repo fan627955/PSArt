@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          href="bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"
+          href="bootstrap3/font-awesome-4.7.0/css/font-awesome.css"/>
+    <style>
+        body {
+            min-width: 1200px;
+            background: #f4f4f4;
+            display: block;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        #app {
+            height: 100%;
+        }
+
+        .pt-0 {
+            padding-top: 0 !important;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+            display: block;
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+        }
+
+        [class*=" el-icon-"] {
+            font-family: element-icons !important;
+            speak: none;
+            font-style: normal;
+            font-weight: 400;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            vertical-align: baseline;
+            display: inline-block;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        div {
+            display: block;
+        }
+
+        .header-container > div {
+            flex-shrink: 0;
+        }
+
+
+        .bg-color-FFFFFF {
+            background-color: #fff !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .flex-between {
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+        }
+
+        .header-container {
+            position: relative;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 60px;
+            min-width: 1200px;
+        }
+
+        a {
+            cursor: pointer;
+            background: transparent;
+            text-decoration: none;
+            color: #feab00;
+        }
+
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        dd, dl, li, ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: list-item;
+        }
+
+        ul {
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
+        html {
+            overflow-y: scroll
+        }
+
+        li :not(.list-with-style), ul {
+            list-style: none;
+        }
+
+        i {
+            font-style: italic
+        }
+
+        input {
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0;
+            text-shadow: none;
+            text-align: start;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+        }
+
+        :after, :before {
+            box-sizing: border-box;
+        }
+
+        .el-input {
+            position: relative;
+            font-size: 14px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .el-input::-webkit-scrollbar {
+            z-index: 11;
+            width: 6px;
+        }
+
+        .el-input::-webkit-scrollbar-corner {
+            background: #fff;
+        }
+
+        .el-input::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            width: 6px;
+            background: #b4bccc;
+        }
+
+        .el-input::-webkit-scrollbar-track-piece {
+            background: #fff;
+            width: 6px;
+        }
+
+        .el-input_inner {
+            background-image: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #606266;
+            display: inline-block;
+            font-size: inherit;
+            line-height: 40px;
+            outline: 0;
+            transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+        }
+
+        .el-icon-search:before {
+            content: "\e778"
+        }
+
+        .el-button-text {
+            border-color: transparent;
+            background: 0 0;
+        }
+
+        .el-button {
+            display: inline-block;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid #DCDFE6;
+            text-align: center;
+            box-sizing: border-box;
+            outline: 0;
+            margin: 0;
+            transition: .1s;
+            font-weight: 500;
+            border-radius: 4px;
+        }
+
+        button {
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-indent: 0;
+            text-shadow: none;
+            align-items: flex-start;
+            overflow: visible;
+        }
+
+        button, html, input, select, textarea {
+            font-family: Helvetica Neue, Helvetica, Microsoft Yahei, Tahoma, sans-serif;
+        }
+
+        button, select {
+            text-transform: none;
+        }
+
+        button, input, optgroup, select, textarea {
+            font: inherit;
+        }
+
+        .b2 {
+            width: 100%;
+            height: 369px;
+            padding-top: 30px;
+            position: absolute;
+            bottom: 0;
+            display: block;
+            font-size: 14px;
+            line-height: 1.5;
+            background-color: #333;
+        }
+
+        .header-wrap {
+            height: 64px;
+        }
+
+        .header-wrap header {
+            width: 100%;
+            height: 64px;
+            position: fixed;
+            top: 0;
+            z-index: 2000;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .06);
+        }
+
+        .header-wrap header .logo {
+            width: 113px;
+            height: 34px;
+            margin: 15px 0;
+            float: left;
+        }
+
+        .header-wrap header .c-nav li {
+            text-align: center;
+            padding: 0 22px;
+            position: relative;
+        }
+
+        .header-wrap header .c-nav li a.active {
+            color: #f8cf39;
+            width: 100%;
+            height: 64px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .header-wrap header .c-nav {
+            height: 64px;
+            line-height: 64px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-left: 40px;
+            float: left;
+            color: #282828;
+            font-size: 16px;
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+
+        .header-wrap header .c-nav li a {
+            color: #282828;
+            display: block;
+        }
+
+        .header-wrap header .search {
+            position: relative;
+            width: 500px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            background-color: #f4f4f4;
+            margin-left: auto;
+            border-radius: 22px;
+            padding-right: 20px;
+        }
+
+        .header-wrap header .search .search-input {
+            -webkit-box-flex: 1;
+            flex: 1;
+            height: 100%;
+        }
+
+        .header-wrap header .search .search-input input {
+            border: none;
+            background-color: transparent;
+            padding: 0 0 0 21px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .header-wrap header .search .go-search {
+            flex-shrink: 0;
+            font-size: 22px;
+            color: #777;
+            cursor: pointer;
+        }
+
+        .header-wrap header .search-box {
+            position: absolute;
+            top: 100%;
+            left: 31px;
+            width: 447px;
+            background: #fff;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
+            border-radius: 4px;
+        }
+
+        .header-wrap header .header-login-register {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-wrap header .header-login-register .el-button + .el-button {
+            margin-left: 0;
+        }
+
+        .header-wrap header .header-login-register .index-login-btn {
+            border-right: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 16px;
+            color: #282828;
+            line-height: 16px;
+            padding: 0 8px;
+            height: 21px;
+        }
+
+        .p-user-center {
+            position: relative;
+            padding-top: 70px;
+            padding-bottom: 120px;
+            background: #f4f4f4;
+        }
+
+        .p-user-center .back-ground {
+            background-image: url("https://res2.huashi6.com/static/hst/pc/imgs/user-bg.7176b65.png");
+            background-repeat: repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            height: 300px;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+
+        .p-user-center .page-body {
+            width: 1200px;
+            margin: 0 auto;
+            z-index: 1;
+            position: relative;
+        }
+
+        .p-user-center .user-profile .avatar {
+            height: 160px;
+            width: 160px;
+        }
+
+        .p-user-setting .avatar {
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #eee;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .p-user-center .user-profile .avatar img {
+            border: 6px solid #fff;
+        }
+
+        .p-user-setting .avatar img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .p-user-setting .avatar {
+            cursor: pointer;
+        }
+
+        .p-user-center .user-profile .user-info {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+            margin-left: 40px;
+        }
+
+        .p-user-center .user-profile .user-info .name-row {
+            height: 40px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .p-user-center .user-profile .user-info .name-row .name {
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .p-user-center .user-profile .user-info .name-row .user-home-link {
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .p-user-center .user-profile .user-info .describe {
+            height: 28px;
+            font-size: 16px;
+            color: #aaa;
+            line-height: 21px;
+            margin-top: 16px;
+            word-break: break-all;
+        }
+
+        .p-user-center .user-profile .user-info .icon-edit {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #000;
+            background: #fff;
+            width: 50px;
+            height: 50px;
+            margin-top: 26px;
+            font-size: 20px;
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .iconpc-bianji:before {
+            content: "\e60a";
+        }
+
+        .p-user-center .user-profile {
+            display: flex;
+            min-height: 160px;
+        }
+
+        .p-user-center .content-area {
+            margin-top: 100px;
+            display: flex;
+        }
+
+        .p-user-center .content-area .left-nav {
+            width: 223px;
+            height: 265px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .p-user-center .content-area .left-nav .nav-item {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            color: #2f2f2f;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            position: relative;
+        }
+
+        .p-user-center .content-area .left-nav .nav-item .iconfont {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .p-user-center .content-area .left-nav .nav-item:not(:first-of-type) {
+            margin-top: 20px;
+        }
+
+        .iconxitongxiaoxi:before {
+            content: "\e611";
+        }
+
+        .iconpc-zuopinguanli:before {
+            content: "\e614";
+        }
+
+        .iconpc-xihuan:before {
+            content: "\e613";
+        }
+
+        .iconpc-shoucang:before {
+            content: "\e610";
+        }
+
+        .p-user-center .content-area .left-nav .nav-item.active {
+            color: #f8cf39;
+        }
+
+        .iconpc-shezhi:before {
+            content: "\e612";
+        }
+
+        .p-user-center .content-area .right-content {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .p-user-center .content-area .right-content .content-header {
+            width: 100%;
+            height: 57px;
+            background: #fff;
+            border-radius: 4px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 0 20px 0 16px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2f2f2f;
+        }
+
+        .p-user-center .content-area .right-content .content-body {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 956px;
+        }
+
+        .p-user-setting .content-body {
+            padding: 34px 40px 40px;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        blockquote, figure, form, h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+        }
+
+        .p-user-setting .el-form-item {
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .el-form-item::after, .el-form-item::before {
+            display: table;
+            content: "";
+        }
+
+        .p-user-setting .el-form-item_label {
+            float: none;
+            line-height: 20px;
+        }
+
+        .el-form-item_label {
+            text-align: right;
+            vertical-align: middle;
+            font-size: 14px;
+            color: #606266;
+            padding: 0 12px 0 0;
+            box-sizing: border-box;
+        }
+
+        .p-user-setting .el-form-item_content {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+            margin-left: 28px !important;
+        }
+
+        .el-form-item_content {
+            line-height: 40px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        el-form-item_content::after, .el-form-item_content::before {
+            display: table;
+            content: "";
+        }
+
+        .p-user-setting .avatar {
+            flex-shrink: 0;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #eee;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .p-user-setting .avatar {
+            cursor: pointer;
+        }
+
+        .p-user-setting .avatar .tip {
+            font-size: 12px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 17px;
+            width: 100%;
+            height: 30px;
+            background: rgba(0, 0, 0, .2);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .el-form-item_content::after {
+            clear: both;
+        }
+
+        .el-form-item_label {
+            text-align: right;
+            vertical-align: middle;
+            font-size: 14px;
+            color: #606266;
+            padding: 0 12px 0 0;
+            box-sizing: border-box;
+        }
+
+        .p-user-setting .el-form-item_label {
+            float: none;
+            line-height: 20px;
+        }
+        .el-input::-webkit-scrollbar-track {
+            background: #fff;
+        }
+        .el-input_inner{
+            background-color: #FFF;
+            background-image: none;
+            border-radius: 4px;
+            border: 1px solid #DCDFE6;
+            box-sizing: border-box;
+            color: #606266;
+            display: inline-block;
+            font-size: inherit;
+            height: 40px;
+            line-height: 40px;
+            outline: 0;
+            padding: 0 15px;
+            transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            width: 100%;
+        }
+        .p-user-setting .birth-year {
+            width: 90px;
+        }
+        .el-select {
+            display: inline-block;
+            position: relative;
+        }
+        .el-input-suffix .el-input_inner {
+            padding-right: 30px;
+        }
+        .el-select .el-input_inner{
+            cursor: pointer;
+        }
+        input{
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0;
+            text-shadow: none;
+            text-align: start;
+            -webkit-rtl-ordering: logical;
+        }
+        .el-input_suffix {
+            right: 5px;
+            transition: all .3s;
+        }
+        .el-input_prefix, .el-input_suffix{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            color: #C0C4CC;
+            text-align: center;
+        }
+        .el-input_suffix, .el-tree.is-dragging .el-tree-node__content * {
+            pointer-events: none;
+        }
+        .el-input_suffix-inner {
+            pointer-events: all;
+        }
+        .el-select .el-input .el-select_caret{
+            color: #C0C4CC;
+            font-size: 14px;
+            transition: transform .3s,-webkit-transform .3s;
+            transform: rotateZ(180deg);
+            cursor: pointer;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body class="pc-body">
+<article id="app" class="pt-0">
+    <div class="header-wrap"> <!--头-->
+        <header class="bg-color-FFFFFF flex-between">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="＜">
+                        <img width="100%" height="100%"
+                             src="https://res2.huashi6.com/static/hst/pc/imgs/logo.e642e65.svg" alt>
+                    </a>
+                </div>
+                <ul class="c-nav">
+                    <li>
+                        <a href="＜" class="home active">首页
+                            <i></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/share" class>推荐
+                            <i></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/hot" class>作品
+                            <i></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/rank" class>简介
+                            <i></i>
+                        </a>
+                        <i class="iconfont-iconhot">
+
+                        </i>
+                    </li>
+                    <li>
+                        <a href="/recommend" class>预约
+                            <i></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="search"><!--搜索栏-->
+                    <div class="search-input el-input">
+
+                        <input type="text" autocomplete="off" placeholder="输入您要找的作品或画师"
+                               name="serachText" class="el-input_inner">
+                    </div>
+                    <i class="el-icon-search go-search">
+
+                    </i>
+                    <div class="search-box" style="display:none">
+                    </div>
+                </div>
+                <div class=" header-login-register ">
+                    <button type="button" class="el-button index-login-btn el-button-text">
+                        <span>登录</span>
+                    </button>
+                    <button type="button" class="el-button index-reg-btn el-button-text">
+                        <span>注册</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="p-user-center p-user-setting" style="min-height:100%;">
+        <div class="back-ground"></div>
+        <div class="page-body">
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="https://img2.huashi6.com/images/face/global/2021/02/24/192581_79858111154.jpg?imageView2/1/q/100/interlace/1/w/160/h/160/format/webp"
+                         width="160px" height="160px" style="border-radius: 50px;">
+                </div>
+                <div class="user-info">
+                    <div class="name-row">
+                        <span class="name">?</span>
+                        <a target="_blank" href="/u/18124728" class="user-home-link">个人页面</a>
+                    </div>
+                    <div class="describe">这个人很懒,什么也没留下...</div>
+                    <a titile="修改个人资料" href="/user/setting#content-area" class="icon-edit">
+                        <i class="iconfont iconpc-bianji">...</i>
+                    </a>
+                </div>
+            </div>
+            <div id="content-area" class="content-area"><!--中间-->
+                <div class="left-nav">
+                    <a href="/user/favorite" class="nav-item">
+                        <i class="iconfont iconpc-shoucang"></i>"我的收藏"
+                    </a>
+                    <a href="/user/like" class="nav-item">
+                        <i class="iconfont iconpc-xihuan"></i>"我喜欢的"
+                    </a>
+                    <a href="/user/work" class="nav-item">
+                        <i class="iconfont iconpc-zuopinguanli"></i>"作品管理"
+                    </a>
+                    <a href="/user/message" class="nav-item">
+                        <i class="iconfont iconxitongxiaoxi"></i>"系统消息"
+                    </a>
+                    <a href="/user/setting" class="nav-item active">
+                        <i class="iconfont iconpc-shezhi"></i>"个人设置"
+                    </a>
+                </div>
+                <div class="right-content">
+                    <div class="content-header">
+                        <div class="header-toolbar">
+                            <span>个人设置</span>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <form class="el-form">
+                            <div class="el-form-item">
+                                <label class="el-form-item_label" style="width: 68px;">头像</label>
+                                <div class="el-form-item_content" style="margin-left: 68px;">
+                                    <div class="avatar">
+                                        <img src="https://img2.huashi6.com/images/face/global/2021/02/24/192581_79858111154.jpg?imageView2/1/q/100/interlace/1/w/100/h/100/format/webp">
+                                        <div class="tip">更换头像</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-form-item">
+                                <label class="el-form-item_lable" style="width:68px;">昵称</label>
+                                <div class="el-form-item_content" style="margin-left: 68px">
+                                    <div class="el-input">
+                                        <input type="text" autocomplete="off" maxlength="10" minlength="2"
+                                               class="el-input_inner">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-form-item">
+                                <label class="el-form-item_label" style="width: 68px;">生日</label>
+                                <div class="el-form-item_content" style="margin-left: 68px">
+                                    <div class="el-select birth-year">
+                                        <div class="el-input el-input-suffix">
+                                            <input type="text" readonly="readonly" autocomplete="off" placeholder="年"
+                                                   class="el-input_inner">
+                                            <span class="el-input_suffix">
+                                <span class="el-input_suffix-inner">
+                                  <i class="el-select_caret el-input_icon  el-icon-arrow-up"></i>
+                                </span>
+                              </span>
+                                        </div>
+                                        <div class="el-select-dropdown el-popper"
+                                             style="display: none;min-width: 90px;">
+                                            <div class="el-scrollbar" style>
+                                                <div class="el-select-dropdown_wrap el-scrollbar_wrap"
+                                                     style="margin-bottom: -23px; margin-right: -23px">
+                                                    <ul class="el-scrollbar_view el-select-dropdown_list">
+                                                        <li class="el-select-dropdown_item" labe="2016">
+                                                            <span>2016</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2015">
+                                                            <span>2015</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2014">
+                                                            <span>2014</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2013">
+                                                            <span>2013</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2012">
+                                                            <span>2012</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2011">
+                                                            <span>2011</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2010">
+                                                            <span>2010</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2009">
+                                                            <span>2009</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2008">
+                                                            <span>2008</span>
+
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2007">
+                                                            <span>2007</span>
+
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2006">
+                                                            <span>2006</span>
+
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2005">
+                                                            <span>2005</span>
+
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2005">
+                                                            <span>2005</span>
+
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2004">
+                                                            <span>2004</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="el-scrollbar_bar is-horizontal">
+                                                    <div class="el-scrollbar_thumb" style="transform: translateX(0%);">
+                                                    </div>
+                                                </div>
+                                                <div class="el-scrollbar_bar is-vertical">
+                                                    <div class="el-scrollbar_thumb" style="transform: translateX(0%)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="el-select birth-month">
+                                        <div class="el-input is-disabled el-input-suffix">
+                                            <input type="text" disabled="disabled" readonly="readonly"
+                                                   autocomplete="off" placeholder="月"
+                                                   class="el-input_inner">
+                                            <span class="el-input_suffix">
+                                  <span class="el-input_suffix-inner">
+                                     <i class="el-select_caret el-input_icon el-icon-arrow-up"></i>
+                                  </span>
+                                </span>
+                                        </div>
+                                        <div class="el-select-dropdown el-popper" style="display: none;min-width: 90px">
+                                            <div class="el-scrollbar" style>
+                                                <div class="el-select-dropdown_wrap el-scrollbar_wrap"
+                                                     style="margin-bottom: -23px;margin-right: -23px;">
+                                                    <ul class="el-scrollbar_view el-select-dropdown_list">
+                                                        <li class="el-select-dropdown_item" labe="1">
+                                                            <span>1</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="2">
+                                                            <span>2</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="3">
+                                                            <span>3</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="4">
+                                                            <span>4</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="5">
+                                                            <span>5</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="6">
+                                                            <span>6</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="7">
+                                                            <span>7</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="8">
+                                                            <span>8</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="9">
+                                                            <span>9</span>
+                                                        </li>
+                                                        <li class="el-select-dropdown_item" labe="10">
+                                                            <span>10</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="el-scrollbar_bar is-horizontal">
+                                                    <div class="el-scrollbar_thumb" style="transform: translateX(0%);">
+                                                    </div>
+                                                </div>
+                                                <div class="el-scrollbar_bar is-vertical">
+                                                    <div class="el-scrollbar_thumb" style="transform: translateY(0%);">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-form-item">
+                                <label class="el-from-item_label" style="width: 68px;">性别</label>
+                                <div class="el-form-item_content" style="margin-left: 68px;">
+                                    <label role="radio" aria-checked="true" tabindex="0" class="el-radio is-checked">
+                          <span class="el-radio_input is-checked">
+                            <span class="el-radio_inner"></span>
+                            <input type="radio" aria-hidden="true" tabindex="-1" class="el-radio_original" value="1">
+                          </span>
+                                        <span class="el-radio_label">"男"</span>
+                                    </label>
+                                    <label role="radio" tabindex="0" class="el-radio">
+                            <span class="el-radio_input">
+                             <span class="el-radio_inner"></span>
+                             <input type="radio" aria-hidden="true" tabindex="-1" class="el-radio_original" value="2">
+                            </span>
+                                        <span class="el-radio_label">"女"</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="el-form-item user-remark">
+                                <label class="el-form-item_label" style="width: 68px;">简介</label>
+                                <div class="el-form-item_content" style="margin-left: 68px;">
+                                    <div class="el-textarea">
+                                        <textarea autocomplete="off" class="el-textarea_inner"
+                                                  style="min-height: 36.6667px"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <button type="button" class="el-button save-btn el-button-primary el-button-mini">
+                            <span>保存</span>
+                        </button>
+                        <input type="file" accept="image/jpeg,image/gif,image/png" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="c-footer u-clear u-clearfix logined-state"><!--尾巴-->
+        <div class="c-footer-main">
+            <div class="c-footer-main-content">
+                <div class="c-top">
+                    <i class="iconfont iconhuashitong"></i>
+                    <p>画师通是国内优秀原创画师的聚集地，您可以在画师通发表您的原创作品，查看、关注您喜爱的画师与作品</p>
+                </div>
+                <div class="c-line"></div>
+                <div class="c-center">
+                    <div class="c-center-left">
+                        <div class="c-center-left-list">...</div>
+                        <p>免责声明：本站部分内容来源于网络，图片版权属于原作者，本站转载仅供大家交流学习，切勿用于任何商业用途；本站不承担用户因使用这些资源</p>
+                        <p>对自己和他人造成任何形式的损害或伤害；如果侵犯了您的合法权益，请您及时与我们联系，我们会在第一时间删除相关内容。</p>
+                        <p>联系方式： huashi6_hst@163.com</p>
+                        <p>联系QQ：2230152588</p>
+                    </div>
+                    <div class="c-center-right">
+                        <img src="https://res2.huashi6.com/static/hst/pc/imgs/qrcode.af73b0d.jpg" alt class="qr">
+                        <p>微信公众号</p>
+                    </div>
+                </div>
+                <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow" class="caseNumber">
+                    <img src="https://res2.huashi6.com/static/hst/pc/imgs/police.2ebe1f4.png" alt="画师通" class="icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+</article>
+<!---->
+<script charset="utf-8" src="https://hmcdn.baidu.com/static/tongji/plugins/UrlChangeTracker.js"></script>
+<script src="https://hm.baidu.com/hm.js?a3e2ff554f3229fd90bcfe77f75b9806"></script>
+<script src="https://zz.bdstatic.com/linksubmit/push.js"></script>
+<script src="//res2.huashi6.com/static/hst/pc/manifest.b4f67d5ef23581b0e5ca.js" defer=""></script>
+<script src="//res2.huashi6.com/static/hst/pc/3.3252fcadbb7a4b352e36.js" defer=""></script>
+<script src="//res2.huashi6.com/static/hst/pc/17.de22707f64bc502d9b9a.js" defer=""></script>
+<script src="//res2.huashi6.com/static/hst/pc/vendor.5374429c5252cb442068.js" defer=""></script>
+<script src="//res2.huashi6.com/static/hst/pc/main.d2f1e68549a15cdd2f01.js" defer=""></script>
+<script src="//libs.huashi6.com/vue/2.6.10/vue.runtime.min.js"></script>
+<script src="//libs.huashi6.com/axios/0.18.0/axios.min.js"></script>
+<script src="//libs.huashi6.com/vuex/3.1.2/vuex.min.js"></script>
+<script src="//libs.huashi6.com/vue-router/3.1.3/vue-router.min.js"></script>
+<script src="//libs.huashi6.com/element-ui/2.12.0/element-ui.js"></script>
+<script src="//libs.huashi6.com/jquery/v2.2.0/jquery.min.js"></script>
+<script src="//libs.huashi6.com/viewerjs/1.3.7/viewer.min.js"></script>
+
+
+</body>
+</html>

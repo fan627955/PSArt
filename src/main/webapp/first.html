@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          href="bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"
+          href="bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+    <style>
+        body {
+            min-width: 1200px;
+            background: #f4f4f4;
+            display: block;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        #app {
+            height: 100%;
+        }
+
+        .pt-0 {
+            padding-top: 0 !important;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+            display: block;
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+        }
+
+        [class*=" el-icon-"] {
+            font-family: element-icons !important;
+            speak: none;
+            font-style: normal;
+            font-weight: 400;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            vertical-align: baseline;
+            display: inline-block;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        div {
+            display: block;
+        }
+        .header-container > div {
+            flex-shrink: 0;
+        }
+
+
+
+        .bg-color-FFFFFF {
+            background-color: #fff !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .flex-between {
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+        }
+
+        .header-container {
+            position: relative;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 60px;
+            min-width: 1200px;
+        }
+
+        a {
+            cursor: pointer;
+            background: transparent;
+            text-decoration: none;
+            color: #feab00;
+        }
+
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        dd, dl, li, ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: list-item;
+        }
+
+        ul {
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
+        html {
+            overflow-y: scroll
+        }
+
+        li :not(.list-with-style), ul {
+            list-style: none;
+        }
+
+        i {
+            font-style: italic
+        }
+
+        input {
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0;
+            text-shadow: none;
+            text-align: start;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+        }
+        :after, :before {
+            box-sizing: border-box;
+        }
+
+        .el-input {
+            position: relative;
+            font-size: 14px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .el-input::-webkit-scrollbar {
+            z-index: 11;
+            width: 6px;
+        }
+
+        .el-input::-webkit-scrollbar-corner {
+            background: #fff;
+        }
+
+        .el-input::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            width: 6px;
+            background: #b4bccc;
+        }
+
+        .el-input::-webkit-scrollbar-track-piece {
+            background: #fff;
+            width: 6px;
+        }
+
+        .el-input_inner {
+            background-image: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #606266;
+            display: inline-block;
+            font-size: inherit;
+            line-height: 40px;
+            outline: 0;
+            transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+        }
+
+        .el-icon-search:before {
+            content: "\e778"
+        }
+
+        .el-button-text{
+            border-color: transparent;
+            background: 0 0;
+        }
+
+        .el-button {
+            display: inline-block;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid #DCDFE6;
+            text-align: center;
+            box-sizing: border-box;
+            outline: 0;
+            margin: 0;
+            transition: .1s;
+            font-weight: 500;
+            border-radius: 4px;
+        }
+        button {
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-indent: 0;
+            text-shadow: none;
+            align-items: flex-start;
+            overflow: visible;
+        }
+        button, html, input, select, textarea {
+            font-family: Helvetica Neue, Helvetica, Microsoft Yahei, Tahoma, sans-serif;
+        }
+
+        button, select {
+            text-transform: none;
+        }
+
+        button, input, optgroup, select, textarea {
+            font: inherit;
+        }
+        .b2 {
+            width: 100%;
+            height: 369px;
+            padding-top: 30px;
+            position: absolute;
+            bottom: 0;
+            display: block;
+            font-size: 14px;
+            line-height: 1.5;
+            background-color: #333;
+        }
+        .header-wrap {
+            height: 64px;
+        }
+        .header-wrap header {
+            width: 100%;
+            height: 64px;
+            position: fixed;
+            top: 0;
+            z-index: 2000;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .06);
+        }
+        .header-wrap header .logo {
+            width: 113px;
+            height: 34px;
+            margin: 15px 0;
+            float: left;
+        }
+        .header-wrap header .c-nav li {
+            text-align: center;
+            padding: 0 22px;
+            position: relative;
+        }
+
+        .header-wrap header .c-nav li a.active {
+            color: #f8cf39;
+            width: 100%;
+            height: 64px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .header-wrap header .c-nav {
+            height: 64px;
+            line-height: 64px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-left: 40px;
+            float: left;
+            color: #282828;
+            font-size: 16px;
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+
+        .header-wrap header .c-nav li a {
+            color: #282828;
+            display: block;
+        }
+        .header-wrap header .search {
+            position: relative;
+            width: 500px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            background-color: #f4f4f4;
+            margin-left: auto;
+            border-radius: 22px;
+            padding-right: 20px;
+        }
+
+        .header-wrap header .search .search-input {
+            -webkit-box-flex: 1;
+            flex: 1;
+            height: 100%;
+        }
+        .header-wrap header .search .search-input input {
+            border: none;
+            background-color: transparent;
+            padding: 0 0 0 21px;
+            height: 100%;
+            width: 100%;
+        }
+        .header-wrap header .search .go-search {
+            flex-shrink: 0;
+            font-size: 22px;
+            color: #777;
+            cursor: pointer;
+        }
+        .header-wrap header .search-box {
+            position: absolute;
+            top: 100%;
+            left: 31px;
+            width: 447px;
+            background: #fff;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
+            border-radius: 4px;
+        }
+        .header-wrap header .header-login-register {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            position: relative;
+        }
+        .header-wrap header .header-login-register .el-button + .el-button {
+            margin-left: 0;
+        }
+        .header-wrap header .header-login-register .index-login-btn {
+            border-right: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 16px;
+            color: #282828;
+            line-height: 16px;
+            padding: 0 8px;
+            height: 21px;
+        }
+
+    </style>
+</head>
+<body class="pc-body">
+<article id="app" class="pt-0">
+    <div class="header-wrap"> <!--头-->
+        <header class="bg-color-FFFFFF flex-between">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="＜">
+                        <img width="100%" height="100%"
+                             src="https://res2.huashi6.com/static/hst/pc/imgs/logo.e642e65.svg" alt>
+                    </a>
+                </div>
+                <ul class="c-nav">
+                    <li>
+                        <a href="＜" class="home active">首页
+                            <i></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/share" class>推荐
+                            <i></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/hot" class>作品
+                            <i></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/rank" class>简介
+                            <i></i>
+                        </a>
+                        <i class="iconfont-iconhot">
+
+                        </i>
+                    </li>
+                    <li>
+                        <a href="/recommend" class>预约
+                            <i></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="search"><!--搜索栏-->
+                    <div class="search-input el-input">
+
+                        <input type="text" autocomplete="off" placeholder="输入您要找的作品或画师"
+                               name="serachText" class="el-input_inner">
+                    </div>
+                    <i class="glyphicon glyphicon-search" style="font-size: 30px;color: #9d9d9d"></i>
+                    <div class="search-box" style="display:none">
+                    </div>
+                </div>
+                    <div class=" header-login-register ">
+                        <button type="button" class="el-button index-login-btn el-button-text">
+                            <span>登录</span>
+                        </button>
+                        <button type="button" class="el-button index-reg-btn el-button-text">
+                            <span>注册</span>
+                        </button>
+                    </div>
+                </div>
+        </header>
+    </div>
+
+</article>
+
+<div class="b2">  <!--尾-->
+
+</div>
+
+</body>
+</html>
